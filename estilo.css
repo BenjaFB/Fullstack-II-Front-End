@@ -1,0 +1,20 @@
+:root {
+    --becs-cafe-oscuro: #1E1506;
+    --becs-crema: #F5EBDD;
+}
+
+.navbar-becs {
+    background-color: var(--becs-cafe-oscuro);
+}
+
+.navbar-becs .nav-link {
+    color: var(--becs-crema);
+}
+
+.navbar-becs .nav-link:hover {
+    color: white;
+}
+
+.navbar-becs .nav-link.active {
+    color: white;
+}
