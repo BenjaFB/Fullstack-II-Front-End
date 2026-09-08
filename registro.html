@@ -4,10 +4,104 @@
   <meta charset="utf-8">
   <title>Registro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="estilo.css">
+
+  <script>
+    function procesar() {
+      console.log("-- funcion procesar --");
+      limpiar_errores();
+
+      const formulario = document.getElementById("form_registro");
+      const datos_formulario = new FormData(formulario);
+
+      var nombre = datos_formulario.get("campo_nombre");
+      var contra = datos_formulario.get("campo_contra");
+      var contra_conf = datos_formulario.get("campo_contra_conf");
+      var mail = datos_formulario.get("campo_mail");
+      var telefono = datos_formulario.get("campo_telefono");
+
+      // Validar Nombre
+      if (validar_nombre(nombre)) {
+        marcar_campo("mensaje_nombre", true);
+      } else {
+        marcar_campo("mensaje_nombre", false);
+      }
+
+      // Validar Contraseñas
+      if (validar_pass(contra, contra_conf)) {
+        marcar_campo("mensaje_contra", true);
+        marcar_campo("mensaje_contra_conf", true);
+      } else {
+        marcar_campo("mensaje_contra", false);
+        marcar_campo("mensaje_contra_conf", false);
+      }
+
+      // Validar Mail
+      if (validar_mail(mail)) {
+        marcar_campo("mensaje_mail", true);
+      } else {
+        marcar_campo("mensaje_mail", false);
+      }
+
+      // Validar Teléfono
+      if (validar_telefono(telefono)) {
+        marcar_campo("mensaje_telefono", true);
+      } else {
+        marcar_campo("mensaje_telefono", false);
+      }
+    }
+
+    function validar_nombre(nombre) {
+      if (!nombre) 
+      return false;
+
+      nombre = nombre.trim();
+      return nombre.length >= 3 && isNaN(nombre);
+    }
+
+    function validar_pass(contra, contra_conf) {
+      if (!contra || contra.length < 4) 
+      return false;
+
+      return contra === contra_conf;
+    }
+
+    function validar_mail(mail) {
+      const formmato_mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return formmato_mail.test(mail);
+    }
+
+    function validar_telefono(telefono) {
+      const formato_telefono = /^[+]?[0-9]{8,12}$/;
+      return formato_telefono ? formato_telefono.test(telefono.trim()) : false;
+    }
+
+    function marcar_campo(id_span, es_valido) {
+      let caja = document.getElementById(id_span);
+      if (es_valido) {
+        caja.innerHTML = "(Validado)";
+        caja.className = "mensaje_estado texto-valido";
+      } else {
+        caja.innerHTML = "(Inválido)";
+        caja.className = "mensaje_estado texto-invalido";
+      }
+    }
+
+    function limpiar_errores() {
+      console.log("-- funcion limpiar errores --");
+      const lista_errores = document.getElementsByClassName("mensaje_estado");
+      for (const elemento of lista_errores) {
+        elemento.innerHTML = "";
+        elemento.className = "mensaje_estado";
+      }
+    }
+  </script>
 </head>
- 
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-becs" data-bs-theme="dark">
     <div class="container">
@@ -28,7 +122,69 @@
     </div>
     </div>
   </nav>
-  <p>REGISTRO</p>
+
+  <main class="container my-5">
+    <div id="contenedor_formulario">
+      <form id="form_registro">
+        <fieldset class="p-4 border">
+          <legend class="text-center mb-4">Registrate</legend>
+
+          <div class="mb-3 campo-row">
+            <input type="text" name="campo_nombre" id="campo_nombre" class="form-control" placeholder="nombre">
+            <span class="mensaje_estado" id="mensaje_nombre"></span>
+          </div>
+
+          <div class="mb-3 campo-row">
+            <input type="password" name="campo_contra" id="campo_contra" class="form-control" placeholder="contraseña">
+            <span class="mensaje_estado" id="mensaje_contra"></span>
+          </div>
+
+          <div class="mb-3 campo-row">
+            <input type="password" name="campo_contra_conf" id="campo_contra_conf" class="form-control" placeholder="Confirmar contraseña">
+            <span class="mensaje_estado" id="mensaje_contra_conf"></span>
+          </div>
+
+          <div class="mb-3 campo-row">
+            <input type="email" name="campo_mail" id="campo_mail" class="form-control" placeholder="mail">
+            <span class="mensaje_estado" id="mensaje_mail"></span>
+          </div>
+
+          <div class="mb-3 campo-row">
+            <input type="text" name="campo_telefono" id="campo_telefono" class="form-control" placeholder="telefono">
+            <span class="mensaje_estado" id="mensaje_telefono"></span>
+          </div>
+
+          <div class="mb-3 campo-row">
+            <input type="text" name="campo_direccion" id="campo_direccion" class="form-control" placeholder="dirección (opcional)">
+            <span class="mensaje_estado"></span>
+          </div>
+
+          <div class="d-flex justify-content-center gap-3 mt-4">
+            <button type="button" class="btn btn-becs" onclick="procesar()">Ingresar</button>
+            <button type="reset" class="btn btn-becs" onclick="limpiar_errores()">Limpiar</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer-becs py-4 mt-auto">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <h5>Información</h5>
+        </div>
+        <div class="col-md-8">
+          <ul class="list-unstyled mb-0 d-flex flex-column flex-md-row justify-content-md-end gap-md-4">
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/becs.frutossecos/" target="_blank" class="footer-link">@becs.frutossecos</a></li>
+            <li><strong>Contacto:</strong> +56 9 4454 2829</li>
+            <li><strong>Direccion:</strong> <a href="https://maps.app.goo.gl/oVSXJAqgXjCdLjFg6" target="_blank" class="footer-link">Bandurria Azul 585</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
