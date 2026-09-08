@@ -25,21 +25,17 @@ h1,h2,h3,h4,h5,h6{
     color: var(--becs-crema);
     font-weight: 700;
 }
-
 .navbar-becs .nav-link:hover {
     color: white;
 }
-
 .navbar-becs .nav-link.active {
     color: white;
 }
-
 #headerProductos {
     text-align: center;
-    margin-top: 10px;
     margin-bottom: 25px;
+    text-decoration: underline;
 }
-
 .card-img-top {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -48,29 +44,28 @@ h1,h2,h3,h4,h5,h6{
 .card{
     width: 100%;
 }
-
 .card-title{
     min-height: 48px;
     text-align: center;
 }
-
 .card-text {
     margin-top: auto;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     text-align: center;
+    color: #6B3F1F;
+    font-weight: 900;
 }
-
 .card-body {
     display: flex;
     flex-direction: column;
     font-weight: bold;
     font-size: larger;
+    background-color: var(--becs-beige);
 }
 .btn{
     font-family: "Nunito", sans-serif;
     font-weight: 700;
 }
-
 .btn-becs {
     background-color: var(--becs-cafe-oscuro);
     border-color: black;
@@ -88,11 +83,10 @@ h1,h2,h3,h4,h5,h6{
     box-shadow: none;
 }
 
-
 .productos-container {
-    max-width: 1600px;
+    max-width: 1400px;
     margin: 0 auto;
     padding-top: 40px;
     padding-bottom: 50px;
-    background-color: var(--becs-beige);
+    background-color: #F7F1E8;
 }
