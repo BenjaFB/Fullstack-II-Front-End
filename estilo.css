@@ -5,7 +5,7 @@
     --becs-cafe-medio: #6B4423;
 }
 body{
-    background-color: #F7F1E8;
+    background-color: var(--becs-crema);
     font-family: "Nunito", sans-serif;
     display: flex;             
     flex-direction: column;    
@@ -23,7 +23,6 @@ h1,h2,h3,h4,h5,h6{
     font-size: larger;
     
 }
-
 .navbar-becs .nav-link {
     color: var(--becs-crema);
     font-weight: 700;
@@ -34,8 +33,12 @@ h1,h2,h3,h4,h5,h6{
 .navbar-becs .nav-link.active {
     color: white;
 }
+.navbar-becs .navbar-nav {
+    gap: 14px
+}
 #headerProductos {
     text-align: center;
+    margin-top: 35px;
     margin-bottom: 25px;
     text-decoration: underline;
 }
@@ -46,6 +49,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .card{
     width: 100%;
+    border-color: black;
 }
 .card-title{
     min-height: 48px;
@@ -136,44 +140,7 @@ h1,h2,h3,h4,h5,h6{
     color: white;
 }
 
-#contenedor_formulario {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.campo-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.campo-row input {
-    flex: 1;
-}
-
-.mensaje_estado {
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.texto-valido {
-    color: green;
-}
-
-.texto-invalido {
-    color: red;
-}
-
-.footer-becs {
-    background-color: var(--becs-cafe-oscuro);
-    color: var(--becs-crema);
-}
-
-.footer-link {
-    color: var(--becs-crema);
-    text-decoration: none;
-}
-
-.footer-link:hover {
-    color: white;
+.logoFooter {
+    max-width: 25px;
+    margin: 0;
 }
