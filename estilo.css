@@ -144,3 +144,130 @@ h1,h2,h3,h4,h5,h6{
     max-width: 25px;
     margin: 0;
 }
+
+/*carrusel*/
+.inicio-carrusel{
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.inicio-carrusel .carousel-item img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 380px;
+    margin: 0 auto;
+    object-fit: contain;
+    border: 4px solid var(--becs-cafe-oscuro);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.inicio-carrusel .carousel-item {
+    background-color: var(--becs-beige);
+
+    background-image: 
+        url("img/logo.jpeg"), 
+        url("img/logo.jpeg");
+    background-repeat: no-repeat;
+    background-position: 
+        18% center,
+        82% center;
+    background-size: 150px, 150px;
+}
+
+/*flechas*/
+.inicio-carrusel .carousel-control-prev,
+.inicio-carrusel .carousel-control-next {
+    opacity: 1;
+}
+
+.inicio-carrusel .carousel-control-prev-icon,
+.inicio-carrusel .carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(30, 21, 6, 0.55);
+    border: 1px solid var(--becs-crema);
+    border-radius: 50%;
+    background-size: 50% 50%;
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.inicio-carrusel .carousel-control-prev:focus .carousel-control-prev-icon,
+.inicio-carrusel .carousel-control-next:focus .carousel-control-next-icon,
+.inicio-carrusel .carousel-control-prev:active .carousel-control-prev-icon,
+.inicio-carrusel .carousel-control-next:active .carousel-control-next-icon {
+    background-color: rgba(30, 21, 6, 0.55);
+    transform: scale(1);
+}
+
+.inicio-carrusel .carousel-control-prev:hover .carousel-control-prev-icon {
+    background-color: rgba(30, 21, 6, 0.90);
+    transform: scale(1.08);
+}
+
+.inicio-carrusel .carousel-control-next:hover .carousel-control-next-icon {
+    background-color: rgba(30, 21, 6, 0.90);
+    transform: scale(1.08);
+}
+
+/*info local*/
+.inicio-informacion {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.inicio-informacion h2 {
+    margin-bottom: 20px;
+    color: var(--becs-cafe-medio);
+}
+
+.inicio-informacion p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--becs-cafe-medio);
+}
+
+/*productos destacados*/
+.inicio-productos {
+    max-width: 1200px;
+    margin: 40px auto 60px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.inicio-productos h2 {
+    margin-bottom: 30px;
+    color: var(--becs-cafe-oscuro);
+}
+
+.producto-destacado {
+    height: 100%;
+    padding: 15px;
+    background-color: var(--becs-beige);
+    border: 1px solid var(--becs-cafe-oscuro);
+}
+
+.producto-destacado img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.producto-destacado h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: var(--becs-cafe-medio);
+}
+
+.producto-destacado p {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--becs-cafe-medio);
+}
