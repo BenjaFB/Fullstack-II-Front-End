@@ -271,3 +271,41 @@ h1,h2,h3,h4,h5,h6{
     font-weight: 800;
     color: var(--becs-cafe-medio);
 }
+
+/*video yt*/
+.inicio-videos {
+    max-width: 1000px;
+    margin: 50px auto 70px auto;
+    padding: 30px;
+    text-align: center;
+    background-color: var(--becs-beige);
+    border: 2px solid var(--becs-cafe-oscuro);
+    border-radius: 15px;
+}
+
+.inicio-videos h2 {
+    margin-bottom: 10px;
+    color: var(--becs-cafe-oscuro);
+}
+
+.video-descripcion {
+    max-width: 750px;
+    margin: 0 auto 25px auto;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--becs-cafe-medio);
+}
+
+.video-tarjeta {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: var(--becs-cafe-oscuro);
+    border-radius: 12px;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.video-tarjeta iframe {
+    border: 0;
+    border-radius: 8px;
+}
